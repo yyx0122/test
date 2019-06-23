@@ -1,0 +1,141 @@
+{include file='public/header'}
+<style>
+.leftNav li .navicon4{
+	background:#081227 url(__IMAGES__/img/nkh-icon.png) no-repeat 20px center;
+	border-left: 10px solid #488fd7;
+	padding-left: 59px;
+}
+</style>
+		<!-- 内容区域 -->
+		<div class="rtMain" id="rtMainH">
+			<!-- 内容标题 -->
+			<div class="main">
+				<div class="mainTit bg-f">
+					<h6 class="main-Tname Tname4">客户信息</h6>
+				</div>
+				<!-- 搜索增加 -->
+				<div class="mainList bg-f m-b3 clearfix">
+					<div class="addData fl">新增客户信息</div>
+					<div class="search fr">
+						<form action="" enctype="multipart/form-data" method="get" id="soform">
+						<input type="text" value="" class="searchInput fl sous" name="content" value="" />
+						<input type="button" class="seachBtn" value="搜索" />
+						</form>
+					</div>			
+				</div>
+				<div class="mainCont bg-f">
+					<div class="main-box b-d">						          
+						<!-- 数据头部 -->
+						<div class="tableMain">
+							
+							<table class="table">
+								<thead>
+									<th>序号</th>
+									<th>公司名称</th>
+									<th>联系人</th>
+									<th>电话</th>
+									<th>添加时间</th>
+									<th>操作</th>
+								</thead>
+								<tbody>
+
+									<tr class="td_bg2" >
+									
+										<td></td>
+										<td></td>
+										<td></td>
+										<td class="td_c1"></td>
+										<td></td>
+										<td customerid="" customertab="customerinfor">
+											<a href="javascript:;" class="buttonA editBtn customerupdate addreportBtn">编辑</a>
+											<a href="javascript:;" class="buttonA deleteBtn" data-value="">删除</a>
+										</td>
+									</tr>
+
+								</tbody>
+								<!-- 暂无数据 -->
+								<div class="tableFoot">
+									<table>
+										<tbody>
+											<tr>
+												<td colspan="7">暂无数据</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</table>
+						</div>
+					</div>
+					<!-- 分页 -->
+					<div class="pageNumber tc">
+						<!-- <a href="javascript:;" class="prev">上一页</a>
+						<a href="javascript:;" class="active">1</a>
+						<a href="javascript:;">2</a>
+						<a href="javascript:;" class="next">下一页</a> -->
+						
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+	<!-- 蒙层 -->
+	<div class="cover dn" style="z-index: 80"></div>
+	<!-- 客户信息弹窗 -->
+	<div class="bounceBox dn Popupkehu" style="z-index: 100">
+		<div class="bounceBoxTit tr bg1">
+			<span class="fl">客户信息</span><a class="closeDetermine" href="javascript:;"><img src="__IMAGES__/img/closed.png" alt=""></a>
+		</div>
+		<form action="" id="form" enctype="multipart/form-data" method="POST">
+			<div class="bounceBoxCont">
+				<dl class="bounceBoxCl">
+					<dt class="bounceBoxCt fl"><font color="red">*</font>客户公司名:</dt>
+					<dd class="bounceBoxCd"><input type="text" name="companyname" id="companyName" class="bounceTxt" value="" maxlength="50"/></dd>
+				</dl>
+				<dl class="bounceBoxCl">
+					<dt class="bounceBoxCt fl">地址:</dt>
+					<dd class="bounceBoxCd"><input type="text" class="bounceTxt address" name="address" id="address" value="" maxlength="150"/></dd>
+				</dl>
+				<dl class="bounceBoxCl">
+					<dt class="bounceBoxCt fl">电话:</dt>
+					<dd class="bounceBoxCd"><input type="text" class="bounceTxt" name="phone" id="phone" value="" maxlength="15"/></dd>
+				</dl>
+				<dl class="bounceBoxCl">
+					<dt class="bounceBoxCt fl">联系人:</dt>
+					<dd class="bounceBoxCd"><input type="text" name="contacts" id="contacts" value="" class="bounceTxt" maxlength="20"/></dd>
+				</dl>
+				<dl class="bounceBoxCl">
+					<dt class="bounceBoxCt fl">月结账户:</dt>
+					<dd class="bounceBoxCd"><input type="text" name="account" id="account" value="" class="bounceTxt" maxlength="20"/></dd>
+				</dl>
+				<dl class="bounceBoxCl">
+					<dt class="bounceBoxCt fl">邮箱:</dt>
+					<dd class="bounceBoxCd"><input type="text" name="email" id="email" value="" class="bounceTxt" maxlength="30"/></dd>
+				</dl>
+				
+
+				<input type="hidden" name="adminid" value="" />
+				<input type="hidden" name="id" id="intid" value="" />
+				<input type="hidden" name="act" id="act" value="" />
+
+
+			</div>
+			<div class="butBox tc">
+				<a href="javascript:;" class="btnA bg2 Determine" id="btn">保存</a>
+			</div>
+		</form>
+	</div>
+	<!-- 删除弹窗 -->
+    <div class="bounceBox deleteBox Popup2 dn">
+        <p class="deleteP tc font-20">是否删除该信息？</p>
+        <div class="butBox ptb-20 tc">
+            <input type="hidden" id="delintid" value="" />
+		    <input type="hidden" id="delact" value="delete" />
+            <button class="btnA submitA1 confirm2 confirm2-acc-d queding">确定</button><button class="btnA submitA2 cancel2 cancel2-acc-c">取消</button>
+        </div>  
+    </div>
+</body>
+{include file="public/footer"}
+<script type="text/javascript" src="__JS__/customer.js"></script>
+</html>

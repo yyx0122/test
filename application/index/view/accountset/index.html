@@ -1,0 +1,126 @@
+{include file="public/header"}
+		<style>
+		.leftNav li .navicon1{ 
+			background:#081227 url(__STATIC__/images/img/nzh-icon.png) no-repeat 20px center;
+			border-left: 10px solid #488fd7;
+			padding-left: 59px; 
+		}
+		</style>
+		<!-- 内容区域 -->
+		<div class="rtMain" id="rtMainH">
+			<!-- 内容标题 -->
+			<div class="main">
+				<div class="mainC">
+					<div class="mainTit bg-f">
+						<h6 class="main-Tname Tname1">账户设置</h6>
+					</div>
+					<!-- 搜索增加 -->
+					<div class="mainList bg-f m-b3 clearfix">
+						<div class="addData fl addDataClick">新增账户信息</div>		
+					</div>
+					<div class="mainCont bg-f">
+						<div class="main-box b-d">
+							<!-- 数据头部 -->
+							{if $list neq ''}
+							<div class="tableMain">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>序号</th>
+											<th>账户名称</th>
+											<th>管理权限</th>
+											<th>创建时间</th>
+											<th>操作</th>
+										</tr>
+									</thead>
+									<tbody>
+										{foreach name="list" item="v" key="k"}
+										<tr  class="td_bg2" >
+											<td>{$k+1}</td>
+											<td>{$v.admin_name}</td>
+											<td>{$v.role_name}</td>
+											<td>{$v.add_time}</td>
+											<td>
+												<a href="javascript:;" class="buttonA editBtn" data-value="{$v.admin_id}">编辑</a>
+												<a href="javascript:;" class="buttonA deleteBtn" data-value="{$v.admin_id}">删除</a>
+											</td>
+										</tr>
+										{/foreach}
+									</tbody>
+								</table>
+							</div>
+							<!-- 暂无数据 -->
+							{else}
+							<div class="tableFoot dn">
+								<table>
+									<tbody>
+										<tr>
+											<td colspan="7">暂无数据</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							{/if}
+						</div>
+						<!-- 分页 -->
+						<div class="pageNumber tc">
+							{$list->render()}
+						</div>
+					</div>
+				</div>
+				<div class="mainC dn">
+					<div class="mainTit bg-f">
+						<h6 class="main-Tname Tname1">账户设置</h6>
+					</div>
+					<div class="mainCont bg-f">
+						<div class="main-box">
+							<dl class="accountInput">
+								<dt class="fl accountName">用户名:</dt>
+								<dd><input type="text" class="inputText namda inputW180" value="" maxlength="20"></dd>
+							</dl>
+							<dl class="accountInput">
+								<dt class="fl accountName">二级权限:</dt>
+								<dd><div class="checkboxD checkboxD1">
+									<input class="checkboxBtn" type="checkbox" name="two" value="2">
+									<label class="checkBox" for=""></label></div></dd>
+							</dl>
+							<dl class="accountInput">
+								<dt class="fl accountName">三级权限:</dt>
+								<dd><div class="checkboxD checkboxD1">
+									<input class="checkboxBtn" type="checkbox" name="three" value="3">
+									<label class="checkBox" for=""></label></div></dd>
+							</dl>
+							<dl class="accountInput accountInput4">
+								<dt class="fl accountName">权限设置:</dt>
+								<dd>
+									<div class="checkboxD">
+										<input class="item" type="checkbox" name=""  value="">
+										<label class="checkBox" for=""></label>
+									</div>											
+								</dd>
+							</dl>								
+						</div>
+						<input type="hidden" id="act" value="" />
+						<input type="hidden" id="accid" value="" />
+						<div class="butBox pl-80 ptb-30">
+							<button class="btnA submitA1 Determine confirm0">确定</button>
+							<a class="btnA submitA2" href="accountset.php">返回</a>
+							<!-- <a href="javascript:;" class="btnA bg1 Determine confirm0">确定</a> -->
+						</div>	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<!-- 删除弹窗 -->
+	<div class="bounceBox deleteBox Popup2 dn">
+		<p class="deleteP tc font-20">是否删除该信息</p>
+		<div class="butBox ptb-20 tc">
+			<button class="btnA submitA1 confirm2 confirm2-acc-d">确定</button><button class="btnA submitA2 cancel2 cancel2-acc-c">取消</button>
+		</div>	
+	</div>
+{include file="public/footer"}
+<script type="text/javascript" src="__STATIC__/js/account.js"></script>
+</body>
+</html>

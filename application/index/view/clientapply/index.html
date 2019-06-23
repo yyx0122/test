@@ -1,0 +1,79 @@
+{include file="public/header"}
+			<style>
+				.leftNav li .navicon9{ background:#081227 url(__IMAGES__/img/shenqing.png) no-repeat 20px center;border-left: 10px solid #488fd7; padding-left: 59px; }
+			</style>
+			<!-- 内容区域 -->
+			<div class="rtMain" id="rtMainH">
+				<!-- 内容标题 -->
+				<div class="main">
+					<div class="mainC">
+						<div class="mainTit bg-f">
+							<h6 class="main-Tname Tname9">检测申请</h6>
+						</div>
+						<!-- 搜索增加 -->
+						<div class="mainList bg-f m-b3 clearfix">
+							<form action="testreport/clientapply.php" enctype="multipart/form-data" method="get" id="searchform">
+							<div class="search fr">
+								<input type="text" value="" class="searchInput fl sous" name="content">
+								<button type="button" class="seachBtn">搜索</button>
+							</div>
+							</form>
+							
+						</div>
+						<!-- 搜索增加 end-->
+						<div class="mainCont bg-f">
+							<div class="main-box b-d">
+								<!-- 数据list start-->
+								<div class="tableMain">
+									<table class="table">
+										<thead>
+											<th>序号</th>
+											<th>公司名称</th>
+											<th>型号</th>
+											<th>状态</th>
+											<th>申请时间</th>
+											<th>操作</th>
+										</thead>
+										<tbody>
+											<tr class="td_bg2" >
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td>
+												<a href="" class="buttonA  previewBtn">查看</a>
+												</td>
+											</tr>
+											
+										</tbody>
+										<!-- 数据list end-->
+										<!-- 暂无数据 start-->
+										<div class="tableFoot">
+											<table>
+												<tbody>
+													<tr>
+														<td colspan="7">暂无数据</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<!-- 暂无数据 end-->
+									</table>
+								</div>
+								
+							</div>
+							<!-- 分页 -->
+							<div class="pageNumber tc">
+							</div>
+						</div>						
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+	
+	{include file="public/footer"}
+	<script type="text/javascript" src="__JS__/apply.js"></script>
+</body>
+</html>

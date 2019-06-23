@@ -1,0 +1,87 @@
+{include file='public/header'}
+<style type="text/css">
+.leftNav li .navicon3{
+    background:#081227 url(__IMAGES__/img/nmj-icon.png) no-repeat 20px center;
+    border-left: 10px solid #488fd7;
+    padding-left: 59px;
+}
+</style>
+        <!-- 内容区域 -->
+        <div class="rtMain" id="rtMainH">
+        	<!-- 内容标题 -->
+        	<div class="main">
+        		<div class="mainTit bg-f">
+        			<h6 class="main-Tname Tname3">页眉页脚</h6>
+        		</div>
+        		<div class="mainCont bg-f">
+                         <div class="nal">
+                            <div class="nal-ps">
+                                <p class="tc">logo图片限制</p><p>格式：jpg/png</p><p>大小：2MB</p>
+                            </div>
+                            <img src="">
+                        </div>
+                         <div class="nal">
+                            <div class="nal-ps">
+                                <p class="tc">水印图片限制</p><p>格式：jpg/png</p><p>大小：2MB</p>
+                            </div>
+                            <img src="">
+                        </div>
+        			<div class="main-box">
+        				<form action="" enctype="multipart/form-data" method="post">
+        					<dl class="pageHeader">
+        						<dt class="pageHdt">公司logo:</dt>
+        						<dd class="pageHdd">
+
+                                    <input type="text" name="txt" id="logo" class="inputText" value="" disabled readonly/>
+                                    <input type="button" onMouseMove="file.style.pixelLeft=event.x-60;file.style.pixelTop=this.offsetTop;" value="浏览" onClick="file.click()" class="uploadBtn disabledInput" disabled style="background-color:#b3b8bd;" />
+                                    <input type="file" id="file" onChange="txt.value=this.value;$('#filephoto').val('');" name="file" style="height:26px;" class="file_input" accept="image/*"/>
+
+        						</dd>
+        					</dl>
+                            <dl class="pageHeader">
+                                <dt class="pageHdt">水印:</dt>
+                                <dd class="pageHdd">
+
+                                    <input type="text" name="water" id="water" class="inputText" value="" disabled readonly/>
+                                    <input type="button" onMouseMove="filew.style.pixelLeft=event.x-60;filew.style.pixelTop=this.offsetTop;" value="浏览" onClick="filew.click()" class="uploadBtn disabledInput" disabled style="background-color:#b3b8bd;" />
+                                    <input type="file" id="filew" onChange="water.value=this.value;$('#filewater').val('');" name="filew" style="height:26px;" class="file_input" accept="image/*"/>
+
+                                </dd>
+                            </dl>
+        					<dl class="pageHeader">
+        						<dt class="pageHdt">地址:</dt>
+        						<dd class="pageHdd"><input type="text" class="disabledInput address" id="address" value=""  maxlength="150" disabled/></dd>
+        					</dl>
+        					<dl class="pageHeader">
+        						<dt class="pageHdt">电话:</dt>
+        						<dd class="pageHdd"><input type="text" class="disabledInput" id="phone" value=""  maxlength="15" disabled/></dd>
+        					</dl>
+        					<dl class="pageHeader">
+        						<dt class="pageHdt">EMAIL:</dt>
+        						<dd class="pageHdd"><input type="text" class="disabledInput" id="email" value=""  maxlength="30" disabled/></dd>
+        					</dl>
+        					<dl class="pageHeader">
+        						<dt class="pageHdt">网址:</dt>
+        						<dd class="pageHdd"><input type="text" class="disabledInput" id="website" value=""  maxlength="30" disabled/></dd>
+        					</dl>
+
+                        <input type="hidden" id="filephoto" name="filephoto" value="" />
+                        <input type="hidden" id="filewater" name="filewater" value="" />
+                        <input type="hidden" id="adminid" name="adminid" value="" />
+                        <input type="hidden" id="intid" name="intid" value="" />
+
+        				</form>
+        				<div class="Submission">
+        					<input class="btnPreservation btn" type="button" disabled="true" value="保存"><input class="btnEdit" type="button" value="修改">
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        
+    </div>
+</div>
+</body>
+{include file="public/footer"}
+<script type="text/javascript" src="__JS__/headfoot.js"></script>
+</html>

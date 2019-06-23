@@ -1,0 +1,200 @@
+{include file='public/header'}
+<style>
+.leftNav li .navicon5{
+	background:#081227 url(__IMAGES__/img/nxp-icon.png) no-repeat 20px center;
+	border-left: 10px solid #488fd7;
+	padding-left: 59px;
+}
+
+</style>
+<link rel="stylesheet" href="__CSS__/cropper.css">
+<link rel="stylesheet" href="__CSS__/cropperindex.css">
+	<!-- 内容区域 -->
+	<div class="rtMain" id="rtMainH">
+		<!-- 内容标题 -->
+		<div class="main">
+			<!-- 芯片信息 -->
+			<div class="mainOne mainC">
+				<div class="mainTit bg-f namy">
+					<h6 class="main-Tname Tname5">芯片信息</h6>
+				</div>
+				<!-- 搜索增加 -->
+				<div class="mainList bg-f m-b3 clearfix">
+					<div class="addData fl addDataClick">新增芯片信息</div>
+					<div class="search fr">
+						<form action="chipinfor.php" enctype="multipart/form-data" method="get" id="soform">
+							<input type="text" class="searchInput fl sous" name="content" />
+							<input type="button" class="seachBtn" value="搜索" />
+						</form>
+					</div>
+				</div>
+				<div class="mainCont mnal bg-f">
+					<div class="main-box b-d">
+						
+						<!-- 数据头部 -->
+						<div class="tableMain">
+							<table class="table">
+								<thead>
+									<th>序号</th>
+									<th>型号</th>
+									<th>厂商</th>
+									<th>封装名称</th>
+									<th>封装尺寸</th>
+									<th>添加时间</th>
+									<th>操作</th>
+								</thead>
+								<tbody>
+									<tr  class="td_bg2" >
+										<td></td>
+										<td></td>
+										<td></td>
+										<td class="td_c1"></td>
+										<td></td>
+										<td></td>
+										<td chipid="" chiptab="chipinfor">
+											<a href="javascript:;" class="buttonA editBtn">编辑</a>
+											<a href="javascript:;" class="buttonA deleteBtn">删除</a>
+										</td>
+									</tr>	
+								</tbody>
+								<!-- 暂无数据 -->
+								<div class="tableFoot">
+									<table>
+										<tbody>
+											<tr>
+												<td colspan="7">暂无数据</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</table>
+						</div>
+						
+					</div>
+					<!-- 分页 -->
+					<div class="pageNumber tc">
+					</div>
+				</div>
+			</div>
+			<!-- 新增芯片信息 -->
+			<div class="mainTwo mainC dn fvbd">
+				
+				<div class="mainTit bg-f">
+					<h6 class="main-Tname Tname5">芯片信息</h6>
+				</div>
+				<div class="mainCont font-14 bg-f">
+					<form action="" id="form" enctype="multipart/form-data" method="POST">
+					<dl class="bounceBoxCl">
+						<dt class="bounceBoxCt fl"><font color="red">*</font>型号:</dt>
+						<dd class="bounceBoxCd"><input type="text" name="model" id="model" val="" class="bounceTxt" maxlength="20"/></dd>
+					</dl>
+					<dl class="bounceBoxCl">
+						<dt class="bounceBoxCt fl"><font color="red">*</font>厂商:</dt>
+						<dd class="bounceBoxCd"><input type="text" name="manufacturer" id="manufacturer" val="" class="bounceTxt" maxlength="30"/></dd>
+					</dl>
+					
+					<dl class="bounceBoxCl">
+						<dt class="bounceBoxCt fl">PDF链接:</dt>
+						<dd class="bounceBoxCd"><input type="text" name="pdflink" id="pdflink" val="" class="bounceTxt" maxlength="100"/></dd>
+					</dl>
+					<dl class="bounceBoxCl">
+						<dt class="bounceBoxCt fl">芯片描述:</dt>
+						<dd class="bounceBoxCd">
+							<textarea name="describes" id="describes" cols="30" rows="10" class="bounceTxtArea"></textarea>
+						</dd>
+					</dl>
+					<dl class="bounceBoxCl">
+						<dt class="bounceBoxCt fl">封装名称:</dt>
+						<dd class="bounceBoxCd"><input type="text" name="sealname" id="sealname" val="" class="bounceTxt" maxlength="20"/></dd>
+					</dl>
+					<input type="hidden" name="id" id="intid" value="" />
+					<input type="hidden" name="act" id="act" value="" />
+					</form>	
+					
+					<dl class="bounceBoxCl clearfix">
+						<dt class="bounceBoxCt fl">封装尺寸:</dt>
+						<br /><br />
+						<dd class="bounceBoxCd fl upda">
+
+						</dd>
+						<dd class="bounceBoxCd">
+							<div class="imgUplode">
+								<div class="z_photo upimg-div clearfix" style="width: 100%;">
+					                <div class="z_file">
+					                	<p id="xuan"></p>
+					                	<!-- <form id="imgF0" enctype="multipart/form-data" method="POST"> -->
+					                    <img src="__IMAGES__/upImg1.png" class="add-img TxText xzBtn" id="imgReplaceBtn" dec="wu">
+					                    <!-- <input type="file" name="file" id="fileBtn" class="fileBtn" value="" accept="image/*"></form> -->
+					                </div>
+
+					             </div>
+							</div>
+						</dd>
+					</dl>
+					
+					<div class="butBox pl-80 ptb-30">
+						<input type="button" class="btnA submitA1 Determine confirm0" id='btn' value="保存">
+						<a href="testreport/chipinfor.php" class="btnA submitA2 cancel0">返回</a>
+					</div>				
+			</div>
+		</div>
+	</div>
+
+
+		<!-- <div class="mask works-mask naldf">
+	        <div class="mask-content">
+	            <p class="del-p ">您确定要删除吗？</p>
+	            <input type="hidden" id="delintid" value="" />
+			    <input type="hidden" id="delact" value="delete" />
+	            <p class="check-p"><span class="del-com queding">确定</span><span class="wsdel-no" onclick="$('.naldf').hide();$('#layer').hide();">取消</span></p>
+	        </div>
+	    </div> -->
+
+	    <!-- 删除弹窗 -->
+		<div class="bounceBox deleteBox Popup2 dn">
+			<p class="deleteP tc font-20">是否删除该信息？</p>
+			<div class="butBox ptb-20 tc">
+				<input type="hidden" id="delintid" value="" />
+			    <input type="hidden" id="delact" value="delete" />
+				<button class="btnA submitA1 confirm2 confirm2-acc-d queding">确定</button><button class="btnA submitA2 cancel2 cancel2-acc-c">取消</button>
+			</div>	
+		</div>
+
+	    <div class="mask works-mask upwask">
+	        <div class="mask-content">
+	            <p class="del-p ">您确定要删除吗？</p>
+	            <p class="check-p"><span class="del-com upwasks">确定</span><span class="wsdel-no" onclick="$('.upwask').hide();">取消</span></p>
+	        </div>
+	    </div>
+
+	    <div class="mask works-mask shanchu">
+	        <div class="mask-content">
+	            <p class="del-p ">您确定要删除吗？</p>
+	            <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no" onclick="$('.shanchu').hide();">取消</span></p>
+	        </div>
+	    </div>
+
+	    <!-- 提示框 -->
+		<div id="layersu" class="covers" style="z-index: 200; display: none;">
+		    <div class="bounceBox deleteBox hintBox Popup3">
+		        <div class="hintTxt hintsuccess tc font-16">恭喜您，请求成功</div>
+		    </div>
+		</div>
+
+		<!-- 提示框 -->
+		<div id="layerwa" class="covers" style="z-index: 200; display: none;">
+		    <div class="bounceBox deleteBox hintBox Popup3">
+		        <div class="hintTxt hintwrong tc font-16">糟糕，提交失败</div>
+		    </div>
+		</div>
+	</div>
+</div>
+</body>
+{include file="public/footer"}
+<script type="text/javascript" src="thirdParty/kindeditor/kindeditor.js"></script>
+<script type="text/javascript" src="__JS__/chip.js"></script>
+<!-- 后端新增图片插件 -->
+<script type="text/javascript" src="__JS__/jquery-2.1.0.js" ></script>
+<script type="text/javascript" src="__JS__/cropper.js" ></script>
+<script type="text/javascript" src="__JS__/upImg.js" ></script>
+</html>

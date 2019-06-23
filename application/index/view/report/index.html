@@ -1,0 +1,90 @@
+{include file="public/header"}
+			<style>
+				.leftNav li .navicon2{ background:#081227 url(__IMAGES__/img/ndd-icon.png) no-repeat 20px center;border-left: 10px solid #488fd7; padding-left: 59px; }
+			</style>
+			<!-- 内容区域 -->
+			<div class="rtMain" id="rtMainH">
+				<!-- 内容标题 -->
+				<div class="main">
+					<div class="mainC">
+						<div class="mainTit bg-f">
+							<h6 class="main-Tname Tname2">订单管理</h6>
+						</div>
+						<!-- 搜索增加 -->
+						<div class="mainList bg-f m-b3 clearfix">
+							<div class="addData fl addDataClick">录入订单</div>
+							<form method="post" action="reportmanage.php"  id="searchform">
+							<div class="search fr">
+								<input type="text" value="" class="searchInput fl" name="search">
+								<button type="button" class="seachBtn">搜索</button>
+							</div>
+							</form>
+							
+						</div>
+						<!-- 搜索增加 end-->
+						<div class="mainCont bg-f">
+							<div class="main-box b-d">
+								<!-- 数据list start-->
+								<div class="tableMain">
+									<table class="table">
+										<thead>
+											<th>序号</th>
+											<th>公司名称</th>
+											<th>型号</th>
+											<th>状态</th>
+											<th>添加时间</th>
+											<th>操作</th>
+										</thead>
+										<tbody>
+											<tr  class="td_bg2" >
+												<td></td>
+												<td></td>
+												<td></td>
+												<td>
+												测试中
+												</td>
+												<td></td>
+												<td>
+													<a href="javascript:;" value="" class="buttonA editBtn editBtn0 tableBtn">编辑</a>
+													<a href="javascript:;" class="buttonA deleteBtn" data-value="">删除</a>
+													<a href="javascript:;" class="buttonA  previewBtn" value="">预览</a>
+													<a href="javascript:;" class="buttonA  downBtn downBtnA" value="">下载</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- 数据list end-->
+								<!-- 暂无数据 start-->
+								<div class="tableFoot dn">
+									<table>
+										<tbody>
+											<tr>
+												<td colspan="7">暂无数据</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+								<!-- 暂无数据 end-->
+							</div>
+							<!-- 分页start -->
+							<div class="pageNumber tc">
+							</div>
+							<!-- 分页end -->
+						</div>						
+					</div>
+				</div>				
+			</div>
+		</div>
+	</div>
+    <!-- 删除弹窗 -->
+	<div class="bounceBox deleteBox Popup2 dn">
+		<p class="deleteP tc font-20">是否删除该信息</p>
+		<div class="butBox ptb-20 tc">
+			<button class="btnA submitA1 confirm2 confirm2-acc-d">确定</button><button class="btnA submitA2 cancel2 cancel2-acc-c">取消</button>
+		</div>	
+	</div>
+	{include file="public/footer"}
+	<script type="text/javascript" src="__JS__/admin_list.js"></script>
+</body>
+</html>

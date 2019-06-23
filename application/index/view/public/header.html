@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>检测报告管理平台</title>
+	<link rel="stylesheet" type="text/css" href="__CSS__/style.css">
+	<link rel="stylesheet" type="text/css" href="__CSS__/main.css">
+	<!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="__CSS__//iecss.css">
+	<![endif]-->	
+	<!-- 新增电子签名 -->
+	<style>
+		.signature{
+			width: 250px;
+    		height: 50px;margin-left: 139px;
+		}
+		.signature .nal-ps{
+			right: -120px;
+		}
+		.signature_input_file{
+			 overflow: hidden;
+		}
+		.signature_input_file input{
+			float: left;
+		}
+		.signatureInput{
+			width: 80px !important;overflow:hidden;
+		}
+		.closeSignBox{
+			display: inline-block;
+		    width: 30px;
+		    height: 30px;
+		    margin-top: 9px;
+		}
+
+	</style>
+</head>
+<body>
+	
+<div id="container">
+	<!-- 头部 -->
+	<div class="top clearfix" id="top">
+		<div class="topLeft fl"></div>
+		<!-- <div class="topRt fr font-18" id="logout">退出</div> -->
+		<div class="uesrId tc fr">
+			<img class="userImg fl" src="__STATIC__/images/img/user.png" alt=""><h6 class="user-name fl"></h6>
+			<ul class="user-list dn">
+				<li><a href="javascript:;" id="changepwd">修改密码</a> </li>
+				<li><a href="javascript:;" id="setName">电子签名</a> </li>
+				<li><a href="javascript:;" id="logout">退出</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="cont" id="mainCont">
+		<!-- 左侧栏 -->
+		<div class="left" id="navLeft">	
+			<ul class="leftNav">
+		    	<li class="navList"><a href="{:url('accountset/index')}" class="navicon1">账户设置</a></li>
+		    	<li class="navList"><a href="{:url('systemset/index')}" class="navicon10">系统设置</a></li>
+		    	<li class="navList"><a href="{:url('clientapply/index')}" class="navicon9">检测申请</a></li>
+		        <li class="navList"><a href="{:url('report/index')}" class="navicon2">订单管理</a></li>
+		        <li class="navList"><a href="{:url('company/index')}" class="navicon3">页眉页脚</a></li>
+		        <li class="navList"><a href="{:url('customer/index')}" class="navicon4">客户信息</a></li>
+		        <li class="navList"><a href="{:url('chip/index')}" class="navicon5">芯片信息</a></li>
+		        <li class="navList"><a href="{:url('goods/index')}" class="navicon6">收货信息</a></li>
+		        <li class="navList"><a href="{:url('testitems/index')}" class="navicon7">测试项目</a></li>
+		        <li class="navList"><a href="{:url('poquote/index')}" class="navicon8">PO报价</a></li>     
+		    </ul>
+		</div>
+
+		<div class="cover dn"></div>
+		<div class="bounceBox dn passwordBox" style="height:350px;">
+			<div class="bounceBoxTit tr bg1" style="background:#1556f0; ">
+				<span class="fl">修改密码</span><a class="closeDetermine" href="javascript:;"><img src="__IMAGES__/img/closed.png" alt=""></a>
+			</div>
+			<div class="bounceBoxCont">
+				<dl class="bounceBoxCl">
+					<dt class="bounceBoxCt fl">新密码:</dt>
+					<dd class="bounceBoxCd"><input type="password" name="password" maxlength="10" id="password" class="bounceTxt" /></dd>
+				</dl>
+				<dl class="bounceBoxCl">
+					<dt class="bounceBoxCt fl">确认密码:</dt>
+					<dd class="bounceBoxCd"><input type="password" name="newpassword"  maxlength="10" id="newpassword" class="bounceTxt" /></dd>
+				</dl>
+			</div>
+			<div class="butBox tc">
+				<a href="javascript:;" class="btnA bg2 " id="commitpwd">保存</a>
+			</div>
+		</div>
+	
+		<div class="bounceBox dn signBox" style="height: auto;">
+				<div class="bounceBoxTit tr bg1">
+					<span class="fl">电子签名</span><a class="closeSignBox" href="javascript:;"><img src="__IMAGES__/img/closed.png" alt=""></a>
+				</div>
+
+				<div class="bounceBoxCont">
+					
+					<dl class="bounceBoxCl">
+						<dt class="bounceBoxCt fl"><font color="red">*</font>真实姓名:</dt>
+						<dd class="bounceBoxCd"><input type="text" name="truename" maxlength="20" id="truename" class="bounceTxt" /></dd>
+
+					</dl>
+					<dl class="bounceBoxCl">
+						<dt class="bounceBoxCt fl"><font color="red">*</font>电子签名:</dt>
+						<div class="nal wenka signature" style="display: none;">
+						    <img id="lapho" src="#">
+						</div>
+						<dd class="bounceBoxCd signature_input_file" style="margin-left: 140px;">
+							<!-- <input type="file" name="elecsign" id="elecsign" accept="image/*"/> -->
+							<input type="text" name="txtfiles" id="txtfiles" class="inputText" value="" disabled readonly/>
+                            <input type="button" value="浏览" onClick="$('#aplolg').click()" class="uploadBtn disabledInput signatureInput" style="background-color:#b3b8bd;width: 80px" />
+                            <input type="file" id="aplolg" onChange="txtfiles.value=this.value;$('#fileam').val('');" name="aplolg" class="file_input signatureInput" accept="image/*"/>
+
+						</dd>
+					</dl>
+					<dl class="bounceBoxCl">
+					    <span class="tc" style="margin-left: 43px;">注：电子签名</span>&nbsp;&nbsp;<span>格式:jpg/png</span>&nbsp;&nbsp;<span>大小:2MB</span>&nbsp;&nbsp;<span>尺寸:250 X 50</span>
+					</dl>
+
+					<input type="hidden" id="fileam" name="fileam" value="" />
+				</div>
+				<div class="butBox tc">
+					<a href="javascript:;" class="btnA bg2 " id="commitsign" style="margin-bottom: 10px;">保存</a>
+				</div>
+			</div>

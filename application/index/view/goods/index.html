@@ -1,0 +1,296 @@
+{include file='public/header'}
+        <style>
+        .leftNav li .navicon6{
+            background:#081227 url(__IMAGES__/img/nsh-icon.png) no-repeat 20px center;
+            border-left: 10px solid #488fd7; 
+            padding-left: 59px;
+        }
+        </style>
+<link rel="stylesheet" href="__CSS__/cropper.css">
+<link rel="stylesheet" href="__CSS__/cropperindex.css">
+    <!-- 蒙层 -->
+    <div class="cover dn"></div>
+    <!-- 芯片信息弹窗 -->
+    <div class="bounceBox dn addInfoBox" id="PopupCH" style="height:350px;">
+        <div class="bounceBoxTit tr bg1">
+            <span class="fl">添加芯片信息（必填）</span><a class="closeDetermine" onclick="$('.cover,#PopupCH').hide();" href="javascript:;"><img src="__IMAGES__/img/closed.png" alt=""></a>
+        </div>
+        <form action="" id="chipform" enctype="multipart/form-data" method="POST">
+            <div class="bounceBoxCont">
+                <dl class="bounceBoxCl">
+                    <dt class="bounceBoxCt fl"><font color="red">*</font>型号:</dt>
+                    <dd class="bounceBoxCd"><input type="text" name="addmodel" id="addmodel" class="bounceTxt" value="" maxlength="20"></dd>
+                </dl>
+                <dl class="bounceBoxCl">
+                    <dt class="bounceBoxCt fl"><font color="red">*</font>厂商:</dt>
+                    <dd class="bounceBoxCd"><input type="text" class="bounceTxt manufacturer" name="manufacturer" id="manufacturer" value="" maxlength="30"></dd>
+                </dl>
+                <dl class="bounceBoxCl">
+                    <dt class="bounceBoxCt fl">封装名称:</dt>
+                    <dd class="bounceBoxCd"><input type="text" class="bounceTxt" name="packname" id="packname" value="" maxlength="20"></dd>
+                </dl>
+                <input type="hidden" name="act" id="actaddchip" value="actaddchip">
+            </div>
+            <div class="butBox tc">
+                <a href="javascript:;" class="btnA bg2 Determine" id="addchip">保存</a>
+            </div>
+        </form>
+    </div>
+
+        <!-- 内容区域 -->
+        <div class="rtMain" id="rtMainH">
+            <!-- 内容标题 -->
+            <div class="main">
+                <div class="mainC">
+                    <div class="mainTit bg-f namy">
+                        <h6 class="main-Tname Tname6">收货信息</h6>
+                    </div>
+                    <!-- 搜索增加 -->
+                    <div class="mainList bg-f m-b3 clearfix">
+                        <div class="addData fl">新增收货信息</div>
+                        <div class="search fr">
+                            <form action="testreport/goodsinfor.php" enctype="multipart/form-data" method="get" id="soform">
+                            <input type="text" value="" name="content" class="searchInput fl sous">
+                            <input type="button" class="seachBtn" value="搜索" />
+                            </form>
+                        </div>
+                        
+                    </div>
+                    <div class="mainCont mnal bg-f">
+                        <div class="main-box b-d">         
+                            <!-- 数据头部 -->
+                            <div class="tableMain">
+                                <table class="table">
+                                    <thead>
+                                        <th>序号</th>
+                                        <th>公司名称</th>
+                                        <th>型号</th>
+                                        <th>数量</th>
+                                        <th>静电包装</th>
+                                        <th>干燥剂</th>
+                                        <th>包装盒</th>
+                                        <th>重量</th>
+                                        <th>添加时间</th>
+                                        <th>操作</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr  class="td_bg2" >
+                                            <td></td>
+                                            <td class="td_c1"></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td goodsid="" goodstab="goodsinfor">
+                                                <a href="javascript:;" class="buttonA editBtn">编辑</a>
+                                                <a href="javascript:;" class="buttonA deleteBtn">删除</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <!-- 暂无数据 -->
+                                    <div class="tableFoot">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td colspan="7">暂无数据</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </table>
+                            </div>
+                            
+                        </div>
+                        <div class="pageNumber tc">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mainTwo mainC dn">
+                    <div class="mainTit bg-f">
+                        <h6 class="main-Tname Tname6">收货信息</h6>
+                    </div>
+                    
+                    <div class="mainCont font-14 bg-f">
+                        <form action="" id="form" enctype="multipart/form-data" method="POST">
+                            
+                            <dl class="bounceBoxCl" style="position: relative;">
+                                <dt class="bounceBoxCt fl"><font color="red">*</font>公司名称:</dt>
+                                <dd class="bounceBoxCd ps-r">
+                                    <input type="text" class="bounceTxt" autocomplete="off" name="company" id="company" maxlength="50"/>
+                                    <!-- <span id="comadd" style="border: 1px solid #b1a9a9;color: #908c8c;">添加</span> -->
+                                    <div id="text_show" class="good_company inputDown"></div>
+                                </dd>
+                            </dl>
+
+
+                            <input type="hidden" name="model" id="model" class="modelhidden" value=""/>
+                            <dl class="bounceBoxCl">
+                                <dt class="bounceBoxCt fl"><font color="red">*</font>芯片型号:</dt>
+                                <dd class="bounceBoxCd ps-r">
+                                    <input type="text" class="bounceTxt" autocomplete="off" name="chipName" id="chipName" maxlength="30"/>
+                                    <div id="model_show" class="good_company inputDown"></div>
+                                </dd>
+                                
+                            </dl>
+
+                            <dl class="bounceBoxCl">
+                                <dt class="bounceBoxCt fl"><font color="red">*</font>厂商(只读):</dt>
+                                <dd class="bounceBoxCd ps-r">
+                                    <input type="text" class="bounceTxt" autocomplete="off" name="chipmau" id="chipmau" maxlength="40" readonly='readonly' />
+                                    <div id="mau_show" class="good_company inputDown"></div>
+                                </dd>
+                                
+                            </dl>
+
+                            <dl class="bounceBoxCl">
+                                <dt class="bounceBoxCt fl"><font color="red">*</font>数量:</dt>
+                                <dd class="bounceBoxCd"><input type="text" class="bounceTxt" name="number" id="number" value="" maxlength="6"/></dd>
+                            </dl>
+                            <dl class="bounceBoxCl">
+                                <dt class="bounceBoxCt fl">静电包装:</dt>
+                                <dd class="bounceBoxCd">
+                                    <select class="selectRecipName" name="package" id="package">
+                                        <option value="可接受的">可接受的</option>
+                                        <option value="存在但不可接受">存在但不可接受</option>
+                                        <option value="不存在">不存在</option>
+                                    </select><!-- <input type="text" class="bounceTxt" name="package" id="package" value="" maxlength="15"/> -->
+                                </dd>
+                            </dl>
+                            <dl class="bounceBoxCl">
+                                <dt class="bounceBoxCt fl">干燥剂:</dt>
+                                <dd class="bounceBoxCd">
+                                    <select class="selectRecipName" name="desiccant" id="desiccant">
+                                        <option value="可接受的">可接受的</option>
+                                        <option value="存在但不可接受">存在但不可接受</option>
+                                        <option value="不存在">不存在</option>
+                                    </select>
+                                    <!-- <input type="text" class="bounceTxt" name="desiccant" id="desiccant" value="" maxlength="15"/> -->
+                                </dd>
+                            </dl>
+                            <dl class="bounceBoxCl">
+                                <dt class="bounceBoxCt fl">湿度卡:</dt>
+                                <dd class="bounceBoxCd">
+                                    <select class="selectRecipName" name="humiditycard" id="humiditycard">
+                                        <option value="可接受的">可接受的</option>
+                                        <option value="存在但不可接受">存在但不可接受</option>
+                                        <option value="不存在">不存在</option>
+                                    </select>
+                                    <!-- <input type="text" class="bounceTxt" name="humiditycard" id="humiditycard" value="" maxlength="15"/> -->
+                                </dd>
+                            </dl>
+                            <dl class="bounceBoxCl">
+                                <dt class="bounceBoxCt fl">包装盒:</dt>
+                                <dd class="bounceBoxCd">
+                                    <select class="selectRecipName" name="packagebox" id="packagebox">
+                                        <option value="可接受的">可接受的</option>
+                                        <option value="存在但不可接受">存在但不可接受</option>
+                                        <option value="不存在">不存在</option>
+                                    </select>
+                                    <!-- <input type="text" class="bounceTxt" name="packagebox" id="packagebox" value="" maxlength="15"/> -->
+                                </dd>
+                            </dl>
+                            <dl class="bounceBoxCl">
+                                <dt class="bounceBoxCt fl">重量:</dt>
+                                <dd class="bounceBoxCd"><input type="text" class="bounceTxt" name="weight" id="weight" value="" maxlength="7"/></dd>
+                            </dl>
+                             <dl class="bounceBoxCl">
+                                <dt class="bounceBoxCt fl">箱数:</dt>
+                                <dd class="bounceBoxCd"><input type="text" class="bounceTxt" name="boxnum" id="boxnum" value="" maxlength="7"/></dd>
+                            </dl>
+                             <dl class="bounceBoxCl">
+                                <dt class="bounceBoxCt fl">包装方式:</dt>
+                                <dd class="bounceBoxCd"><input type="text" class="bounceTxt" name="packtype" id="packtype" value="" maxlength="20"/></dd>
+                            </dl>
+                            <dl class="bounceBoxCl">
+                                <dt class="bounceBoxCt fl">备注:</dt>
+                                <dd class="bounceBoxCd"><textarea name="remark" id="remark" cols="60" rows="10" maxlength="300"></textarea></dd>
+                            </dl>
+
+                            <input type="hidden" name="adminid" id="adminid" value="" />
+                            <input type="hidden" name="id" id="intid" value="" />
+                            <input type="hidden" name="act" id="act" value="" />
+                            <!-- <input type="hidden" name="customerid" id="customerid" value="" /> -->
+                        </form>
+                        <dl class="bounceBoxCl clearfix">
+                            <dt class="bounceBoxCt fl">收货图片:</dt>
+                            <br /><br />
+                            <dd class="bounceBoxCd fl upda">
+                                        
+                            </dd>
+                            <!-- <dd class="bounceBoxCd"> -->
+                                <div class="imgUplode">
+                                    <div class="z_photo upimg-div clearfix" style="width: 100%;">
+                                        <div class="z_file">
+                                            <p id="xuan"></p>
+                                            <!-- <form id="imgF0" enctype="multipart/form-data" method="POST"> -->
+                                                <img src="__IMAGES__/upImg1.png" class="add-img TxText xzBtn" id="imgReplaceBtn" dec="upimg">
+                                            <!-- <input type="file" name="file" id="fileBtn" class="fileBtn" value="" accept="image/*"></form> -->
+                                        </div>
+                                     </div>
+                                </div>
+                            <!-- </dd> -->
+                        </dl>  
+                        <div class="butBox pl-80 ptb-30">
+                            <input type="button" class="btnA submitA1 Determine confirm0" value="保存">
+                            <a href="testreport/goodsinfor.php"  class="btnA submitA2 cancel0">返回</a>
+                        </div>
+                        <!-- <div class="butBox tc bg-f">
+                            <a href="javascript:;" class="btnA bg1 Determine confirm0">确定</a>
+                        </div> -->                  
+                    </div>                
+                </div>       
+            </div>
+        </div>
+    </div>
+</div>  
+
+    <!-- 删除弹窗 -->
+    <div class="bounceBox deleteBox Popup2 dn">
+        <p class="deleteP tc font-20">是否删除该信息？</p>
+        <div class="butBox ptb-20 tc">
+            <input type="hidden" id="delintid" value="" />
+            <input type="hidden" id="delact" value="delete" />
+            <button class="btnA submitA1 confirm2 confirm2-acc-d queding">确定</button><button class="btnA submitA2 cancel2 cancel2-acc-c">取消</button>
+        </div>  
+    </div>
+
+    <aside class="mask works-mask upwask">
+        <div class="mask-content">
+            <p class="del-p ">您确定要删除吗？</p>
+            <p class="check-p"><span class="del-com upwasks">确定</span><span class="wsdel-no" onclick="$('.upwask').hide();">取消</span></p>
+        </div>
+    </aside>
+
+    <aside class="mask works-mask shanchu">
+        <div class="mask-content">
+            <p class="del-p ">您确定要删除吗？</p>
+            <p class="check-p"><span class="del-com wsdel-ok">确定</span><span class="wsdel-no" onclick="$('.shanchu').hide();">取消</span></p>
+        </div>
+    </aside>
+
+     <!-- 提示框 -->
+    <div id="layersu" class="covers" style="z-index: 200; display: none;">
+        <div class="bounceBox deleteBox hintBox Popup3">
+            <div class="hintTxt hintsuccess tc font-16">恭喜您，请求成功</div>
+        </div>
+    </div>
+
+    <!-- 提示框 -->
+    <div id="layerwa" class="covers" style="z-index: 200; display: none;">
+        <div class="bounceBox deleteBox hintBox Popup3">
+            <div class="hintTxt hintwrong tc font-16">糟糕，提交失败</div>
+        </div>
+    </div>
+</body>
+{include file="public/footer"}
+<script type="text/javascript" src="__JS__/goods.jsS"></script>
+
+<!-- 后端新增图片插件 -->
+<script type="text/javascript" src="__JS__/jquery-2.1.0.js" ></script>
+<script type="text/javascript" src="__JS__/cropper.js" ></script>
+<script type="text/javascript" src="__JS__/upImg.js" ></script>
+</html>

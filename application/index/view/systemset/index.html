@@ -1,0 +1,51 @@
+{include file='public/header'}
+<style type="text/css">
+.leftNav li .navicon10{
+    background:#081227 url(__IMAGES__/img/xitongguanli0.png) no-repeat 20px center;
+    border-left: 10px solid #488fd7;
+    padding-left: 59px;
+}
+</style>
+        <!-- 内容区域 -->
+        <div class="rtMain" id="rtMainH">
+        	<!-- 内容标题 -->
+        	<div class="main">
+        		<div class="mainTit bg-f">
+        			<h6 class="main-Tname Tname10">系统设置</h6>
+        		</div>
+        		<div class="mainCont bg-f">
+                  
+        			<div class="main-box">
+        				<form action="" enctype="multipart/form-data" method="post" id="form">
+        					
+        					<dl class="pageHeader">
+        						<dt class="pageHdt">smtp服务:</dt>
+        						<dd class="pageHdd"><input type="text" class="disabledInput address" id="server" name="server" value=""  maxlength="60" disabled/></dd>
+        					</dl>
+        					<dl class="pageHeader">
+        						<dt class="pageHdt">发件人:</dt>
+        						<dd class="pageHdd"><input type="text" class="disabledInput" id="user" name="user" value=""  maxlength="30" disabled/></dd>
+        					</dl>
+        					<dl class="pageHeader">
+        						<dt class="pageHdt">密码:</dt>
+        						<dd class="pageHdd"><input type="text" class="disabledInput" id="pwd" name="pwd" value=""  maxlength="30" disabled/></dd>
+        					</dl>
+        					
+                        <input type="hidden" id="adminid" name="adminid" value="" />
+                        <input type="hidden" id="intid" name="intid" value="" />
+
+        				</form>
+        				<div class="Submission" style="padding: 68px 5px;">
+        					<input class="btnPreservation btn" type="button" disabled="true" value="保存"><input class="btnEdit" type="button" value="修改">
+        				</div>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+        
+    </div>
+</div>
+</body>
+{include file="public/footer"}
+<script type="text/javascript" src="__JS__/system.js"></script>
+</html>

@@ -1,0 +1,80 @@
+{include file="public/header"}
+			<style>
+				.leftNav li .navicon7{ background:#081227 url(__IMAGES__/img/ncs-icon.png) no-repeat 20px center;border-left: 10px solid #488fd7; padding-left: 59px; }
+			</style>
+			<!-- 内容区域 -->
+			<div class="rtMain" id="rtMainH">
+				<!-- 内容标题 -->
+				<div class="main">
+					<div class="mainTit bg-f">
+						<h6 class="main-Tname Tname7">测试项目</h6>
+					</div>
+					<!-- 搜索增加 -->
+					<div class="mainList bg-f m-b3 clearfix">
+						<!-- <div class="addData fl">新增测试项目</div> -->
+						<form action="reportinfo.php" method="post" id="searchform">
+						<div class="search fr">
+						  <input type="text" value="" class="searchInput fl" name="search">
+						  <button type="button" class="seachBtn">搜索</button>
+						 </div>
+						</form>
+						
+					</div>
+					<div class="mainCont bg-f">
+						<div class="main-box b-d">
+							<!-- 数据头部 -->
+							<div class="tableMain">
+								<table>
+									<thead>
+										<th>序号</th>
+										<th>公司名称</th>
+										<th>型号</th>
+										<th>测试项目</th>
+										<th>添加时间</th>
+										<th>测试时间</th>
+										<th>状态</th>
+										<th>操作</th>
+									</thead>
+									<tbody>
+										<tr class="td_bg2" >
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td></td>
+											<td>
+												<span class="tableSp1">状态</span>
+									            
+											</td>								
+											<td>
+												<a href="testitems.php?des=" class="buttonA bg2 testBtn">测试</a>												
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<!-- 暂无数据 -->
+							<div class="tableFoot dn">
+								<table>
+									<tbody>
+										<tr>
+											<td colspan="7">暂无数据</td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- 分页 -->
+						<div class="pageNumber tc">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	{include file="public/footer"}
+	<script type="text/javascript" src="__JS__/itemlist.js"></script>
+</body>
+</html>
